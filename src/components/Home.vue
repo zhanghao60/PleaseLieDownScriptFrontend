@@ -48,7 +48,7 @@
         <div class="hero-content">
           <div class="hero-text">
             <h1 class="hero-title">
-              <span class="title-line">强大的脚本开发平台</span>
+              <span class="title-line">强大的安卓自动化脚本开发平台</span>
               <span class="title-line highlight">PLD Script</span>
             </h1>
             <p class="hero-description">
@@ -161,6 +161,79 @@
           </div>
         </div>
       </section>
+
+      <!-- 关于我们区域 -->
+      <section id="about" class="about-section">
+        <div class="container">
+          <h2 class="section-title">关于我们</h2>
+          <p class="section-subtitle">专业的脚本开发团队，为您提供优质服务</p>
+          
+          <div class="about-content">
+            <div class="about-text">
+              <h3 class="about-subtitle">我们的使命</h3>
+              <p class="about-description">
+                PLD Script 致力于为开发者和企业提供最专业、最易用的脚本开发平台。
+                我们相信技术的力量能够改变世界，让复杂的任务变得简单高效。
+              </p>
+              
+              <h3 class="about-subtitle">我们的优势</h3>
+              <ul class="about-features">
+                <li><i class="fas fa-check-circle"></i> 专业的技术团队，多年开发经验</li>
+                <li><i class="fas fa-check-circle"></i> 24小时在线技术支持</li>
+                <li><i class="fas fa-check-circle"></i> 持续的产品更新和功能优化</li>
+                <li><i class="fas fa-check-circle"></i> 完善的用户社区和文档</li>
+              </ul>
+            </div>
+            
+            <div class="contact-info">
+              <h3 class="contact-title">联系我们</h3>
+              <p class="contact-subtitle">24小时在线服务，随时为您解答问题</p>
+              
+              <div class="contact-methods">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>邮箱联系</h4>
+                    <p>15223303170@163.com</p>
+                    <a href="mailto:15223303170@163.com" class="contact-link">发送邮件</a>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>电话咨询</h4>
+                    <p>15223303170</p>
+                    <a href="tel:15223303170" class="contact-link">拨打电话</a>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fab fa-weixin"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h4>微信客服</h4>
+                    <p>PLDScript</p>
+                    <button @click="showWechatQR = true" class="contact-link">添加微信</button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="online-status">
+                <div class="status-indicator">
+                  <div class="status-dot online"></div>
+                  <span>24小时在线服务</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- 底部 -->
@@ -194,7 +267,7 @@
             <ul class="footer-links">
               <li><a href="#help">帮助中心</a></li>
               <li><a href="#community">社区论坛</a></li>
-              <li><a href="#contact">联系我们</a></li>
+              <li><a href="#about">联系我们</a></li>
               <li><a href="#feedback">意见反馈</a></li>
             </ul>
           </div>
@@ -242,6 +315,29 @@
         </div>
       </div>
     </div>
+
+    <!-- 微信二维码模态框 -->
+    <div v-if="showWechatQR" class="modal-overlay" @click="showWechatQR = false">
+      <div class="modal wechat-modal" @click.stop>
+        <div class="modal-header">
+          <h3>添加微信客服</h3>
+          <button class="modal-close" @click="showWechatQR = false">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="wechat-content">
+            <div class="qr-placeholder">
+              <i class="fab fa-weixin"></i>
+              <p>微信二维码</p>
+            </div>
+            <div class="wechat-info">
+              <h4>微信号：PLDScript</h4>
+              <p>扫描二维码或搜索微信号添加客服</p>
+              <p class="service-time">24小时在线服务</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -252,6 +348,7 @@ import { ref, reactive, onMounted } from 'vue'
 const isLoggedIn = ref(false)
 const showLogin = ref(false)
 const showUserMenu = ref(false)
+const showWechatQR = ref(false)
 const userAvatar = ref('https://via.placeholder.com/40x40/4f46e5/ffffff?text=U')
 
 const loginForm = reactive({
@@ -938,6 +1035,179 @@ onMounted(() => {
   background: white;
 }
 
+/* 关于我们区域样式 */
+.about-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.about-description {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-features {
+  list-style: none;
+  padding: 0;
+}
+
+.about-features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.about-features i {
+  color: #667eea;
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.contact-info {
+  background: white;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.contact-methods {
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: #e2e8f0;
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.contact-details h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.contact-details p {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.contact-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #764ba2;
+}
+
+.contact-link button {
+  background: none;
+  border: none;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.contact-link button:hover {
+  color: #764ba2;
+}
+
+.online-status {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 12px;
+  color: white;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+  background: #10b981;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
 .docs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1169,6 +1439,56 @@ onMounted(() => {
   width: 100%;
 }
 
+/* 微信模态框样式 */
+.wechat-modal {
+  max-width: 500px;
+}
+
+.wechat-content {
+  text-align: center;
+}
+
+.qr-placeholder {
+  width: 200px;
+  height: 200px;
+  background: #f0f0f0;
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: #999;
+}
+
+.qr-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #07c160;
+}
+
+.qr-placeholder p {
+  font-size: 0.9rem;
+}
+
+.wechat-info h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.wechat-info p {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.service-time {
+  color: #07c160 !important;
+  font-weight: 600;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
   .nav-menu {
@@ -1192,6 +1512,16 @@ onMounted(() => {
   .download-grid,
   .docs-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-text,
+  .contact-info {
+    padding: 2rem;
   }
   
   .footer-bottom {
