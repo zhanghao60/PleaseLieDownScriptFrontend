@@ -211,7 +211,7 @@
         </div>
         
         <div class="footer-bottom">
-          <p>&copy; 2024 PLD Script. 保留所有权利。</p>
+          <p>&copy; 2025 PLD Script. 保留所有权利。</p>
           <div class="footer-legal">
             <a href="#privacy">隐私政策</a>
             <a href="#terms">服务条款</a>
@@ -447,7 +447,7 @@ onMounted(() => {
 }
 
 .logo-icon {
-  width: 40px;
+  width: 50px;
   height: 40px;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
